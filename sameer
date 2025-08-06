@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Camera Access</title>
+</head>
+<body>
+  <h1>Camera Access</h1>
+  <video id="video" width="640" height="480" autoplay></video>
+  <script>
+    navigator.mediaDevices.getUserMedia({ video: true })
+      .then(function(stream) {
+        document.getElementById('video').srcObject = stream;
+      })
+      .catch(function(err) {
+        alert("Camera access denied or not available: " + err);
+      });
+  </script>
+</body>
+</html>
